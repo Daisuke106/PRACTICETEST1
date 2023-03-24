@@ -5,24 +5,25 @@
         <title>Blog</title>
     </head>
      <body>
-         <h1>ブログ作成</h1>
-        <form action ="/posts" method = "POST">
+         <h1>編集</h1>
+        <form action ="/posts/{{ $post->id }}" method = "POST">
             @csrf
+            @method('PUT')
             <div class = "title">
                 <h2>タイトル</h2>
-                <input type="text" name=post[title] placeholder="タイトル" value={{old('post.title')}}>
+                <input type="text" name=post[title] placeholder="タイトル" value="{{ $post->title }}">
                 <p class = 'title_error' style="color:red">{{ $errors->first('post.title')}}</p>
             </div>
             <div class = "body">
                 <h2>本文</h2>
-                <textarea name="post[body]" placeholder="テスト" >{{old('post.body')}}</textarea>
+                <textarea name="post[body]" placeholder="テスト" >{{ $post->body }}</textarea>
                 <p class = 'body_error'  style="color:red">{{ $errors->first('post.body')}}</p>
             </div>
-            <input type="submit" value ="作成">
+            <input type="submit" value ="保存">
             
         </form>
         <div class='footer'>
-            <a href="/">戻る</a>
+            <a href="/posts/{{ $post->id }}">戻る</a>
         </div>
     </body>
 </html>

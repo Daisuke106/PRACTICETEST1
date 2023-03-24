@@ -5,8 +5,8 @@
         <title>Blog</title>
     </head>
      <body>
-        <h1>Blog Name</h1>
-        <a href = "/posts/create">create</a>
+        <h1>ブログ</h1>
+        <a href = "/posts/create">新規作成</a>
         <div class='posts'>
             @foreach ($posts as $post)
                 <div class='post'>
